@@ -24,4 +24,10 @@ public class MainController {
         model.addAttribute("titulo", "Contacto");
         return "contacto";
     }
+
+    @GetMapping("/login")
+    public String contacto(Model model) {
+        model.addAttribute("titulo", "login");
+        return "login";
+    }
 }

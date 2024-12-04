@@ -26,7 +26,8 @@ public class LoginController {
     @GetMapping("/login-page")
     public String login(Model model) {
         model.addAttribute("titulo", "Login - TecnoSmart");
-        return "autenticacion/login";
+        //return "autenticacion/login";
+        return "redirect:/login-page";
     }
     
     @GetMapping("/registro")

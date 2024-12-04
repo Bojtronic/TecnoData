@@ -2,86 +2,104 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Panel de Administración - TecnoSmart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda TecnoSmart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" th:href="@{/admin}">Panel de Administración</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarAdmin">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/productos}">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/categorias}">Categorías</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/usuarios}">Usuarios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/ordenes}">Órdenes</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/logout}">Cerrar Sesión</a>
-                    </li>
-                </ul>
+
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">TecnoSmart</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTienda">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTienda">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/categorias}">Categorías</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/nosotros}">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/servicios}">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/contacto}">Contacto</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login-page}">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contenido principal -->
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Bienvenido a TecnoSmart</h1>
+    <p class="text-center">Encuentra los mejores productos electrónicos al mejor precio.</p>
+    
+    <!-- Sección de productos destacados -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Producto 1">
+                <div class="card-body">
+                    <h5 class="card-title">Producto 1</h5>
+                    <p class="card-text">Descripción breve del producto.</p>
+                    <p><strong>Precio: $100</strong></p>
+                    <a th:href="@{/producto/1}" class="btn btn-primary">Ver más</a>
+                </div>
             </div>
         </div>
-    </nav>
-
-    <div class="container mt-4">
-        <h1 class="text-center mb-4">Panel de Administración</h1>
         
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card text-center mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Productos</h5>
-                        <p class="card-text">Gestionar productos</p>
-                        <a th:href="@{/admin/productos}" class="btn btn-primary">Ir a Productos</a>
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Producto 2">
+                <div class="card-body">
+                    <h5 class="card-title">Producto 2</h5>
+                    <p class="card-text">Descripción breve del producto.</p>
+                    <p><strong>Precio: $150</strong></p>
+                    <a th:href="@{/producto/2}" class="btn btn-primary">Ver más</a>
                 </div>
             </div>
-            
-            <div class="col-md-3">
-                <div class="card text-center mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Categorías</h5>
-                        <p class="card-text">Gestionar categorías</p>
-                        <a th:href="@{/admin/categorias}" class="btn btn-primary">Ir a Categorías</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3">
-                <div class="card text-center mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Usuarios</h5>
-                        <p class="card-text">Gestionar usuarios</p>
-                        <a th:href="@{/admin/usuarios}" class="btn btn-primary">Ir a Usuarios</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3">
-                <div class="card text-center mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Órdenes</h5>
-                        <p class="card-text">Gestionar órdenes</p>
-                        <a th:href="@{/admin/ordenes}" class="btn btn-primary">Ir a Órdenes</a>
-                    </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Producto 3">
+                <div class="card-body">
+                    <h5 class="card-title">Producto 3</h5>
+                    <p class="card-text">Descripción breve del producto.</p>
+                    <p><strong>Precio: $200</strong></p>
+                    <a th:href="@{/producto/3}" class="btn btn-primary">Ver más</a>
                 </div>
             </div>
         </div>
     </div>
+    
+    <!-- Información sobre la tienda -->
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <h2>¿Quiénes somos?</h2>
+            <p>En TecnoSmart ofrecemos los mejores productos electrónicos para hacer tu vida más fácil. Trabajamos con las mejores marcas y garantizamos la calidad de todos nuestros productos.</p>
+        </div>
+    </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Pie de página -->
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2024 TecnoSmart | Todos los derechos reservados.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
