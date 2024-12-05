@@ -1,14 +1,13 @@
-package com.tecnosmart;
+package com.tecnosmart.tecnodata;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TecnoDataApplication {
+public class TecnodataApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TecnoDataApplication.class, args);
-
+		SpringApplication.run(TecnodataApplication.class, args);
 	}
 
 }
