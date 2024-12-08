@@ -1,4 +1,4 @@
-package com.tecnosmart.tecnodata.Controllers;
+package com.tecnosmart.tecnodata.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

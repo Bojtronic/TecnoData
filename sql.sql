@@ -13,6 +13,7 @@ SHOW CREATE TABLE detalles_orden;
 SHOW CREATE TABLE ordenes;
 SHOW CREATE TABLE productos;
 SHOW CREATE TABLE usuarios;
+SHOW CREATE TABLE usuario;
 
 INSERT INTO categorias (descripcion, imagen_url, nombre) 
 VALUES ('Electrónica y tecnología', 'https://cdn.vectorstock.com/i/500p/18/71/motherboard-chip-central-processing-unit-symbol-vector-43791871.jpg', 'Electrónica');
@@ -42,6 +43,17 @@ VALUES ('Gómez', 'ana.gomez@example.com', 'Ana', 'securepassword2', 'user');
 
 INSERT INTO usuarios (apellido, email, nombre, password, rol)
 VALUES ('López', 'carlos.lopez@example.com', 'Carlos', 'securepassword3', 'moderator');
+
+
+INSERT INTO usuario (apellido, email, nombre, password, rol)
+VALUES ('Pérez', 'juan.perez@example.com', 'Juan', 'securepassword1', 'admin');
+
+INSERT INTO usuario (apellido, email, nombre, password, rol)
+VALUES ('Gómez', 'ana.gomez@example.com', 'Ana', 'securepassword2', 'user');
+
+INSERT INTO usuario (apellido, email, nombre, password, rol)
+VALUES ('López', 'carlos.lopez@example.com', 'Carlos', 'securepassword3', 'moderator');
+
 
 
 INSERT INTO ordenes (fecha, total, usuario_id)
@@ -74,5 +86,7 @@ SELECT * FROM ordenes;
 SELECT * FROM productos;
 
 SELECT * FROM usuarios;
+
+SELECT * FROM usuario;
 
 
