@@ -2,6 +2,9 @@ package com.tecnosmart.tecnodata.services;
 
 import com.tecnosmart.tecnodata.models.Usuario;
 import com.tecnosmart.tecnodata.repositories.UsuarioRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -82,4 +85,13 @@ public class UsuarioService implements UserDetailsService {
         usuarioRepository.deleteById(id);
         return true;
     }
+
+    /**
+     * Recupera todos los usuarios de la base de datos.
+     * 
+     * @return Lista de usuarios.
+     */
+        public List<Usuario> obtenerTodosLosUsuarios() {
+            return usuarioRepository.findAll(); // Llama al método findAll() de JpaRepository
+        }
 }
