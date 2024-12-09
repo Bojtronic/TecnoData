@@ -1,3 +1,9 @@
+DROP DATABASE tecnosmart_db;
+
+
+CREATE DATABASE tecnosmart_db;
+
+
 use tecnosmart_db
 
 SHOW TABLES;

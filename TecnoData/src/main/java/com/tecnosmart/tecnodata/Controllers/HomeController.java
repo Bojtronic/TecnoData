@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
     
+    
     @GetMapping("/")
     public String home(Model model) {
         return("index");
     }
+    
 
     @GetMapping("/categorias")
     public String categorias() {
@@ -31,4 +33,11 @@ public class HomeController {
     public String contacto() {
         return "contacto"; // Retorna el archivo contacto.html
     }
+
+    /*
+    @GetMapping("/home")
+    public String home() {
+        return "home"; // Retorna el archivo home.html
+    }
+    */
 }

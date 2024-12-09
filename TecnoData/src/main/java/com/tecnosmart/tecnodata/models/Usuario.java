@@ -1,84 +1,104 @@
 package com.tecnosmart.tecnodata.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import java.util.Collection;
+
+import jakarta.persistence.*;
+
 
 @Entity
+@Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // Mapeado con el campo `id` de la tabla
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(nullable = false)
-    private String apellido;  // Mapeado con el campo `apellido`
+	@Column(name = "nombre")
+	private String nombre;
 
-    @Column(nullable = false)
-    private String nombre;    // Mapeado con el campo `nombre`
+	@Column(name = "apellido")
+	private String apellido;
 
-    @Column(nullable = false, unique = true)
-    private String email;     // Mapeado con el campo `email`
+	private String email;
+	private String password;
+	
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "usuarios_roles",
+			joinColumns = @JoinColumn(name = "usuario_id",referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "rol_id",referencedColumnName = "id")
+			)
+	private Collection<Rol> roles;
 
-    @Column(nullable = false)
-    private String password;  // Mapeado con el campo `password`
+	public Long getId() {
+		return id;
+	}
 
-    @Column(nullable = false)
-    private String rol;       // Mapeado con el campo `rol`
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    // Getters y setters
-    public Long getId() {
-        return id;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getApellido() {
-        return apellido;
-    }
+	public String getApellido() {
+		return apellido;
+	}
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public Collection<Rol> getRoles() {
+		return roles;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setRoles(Collection<Rol> roles) {
+		this.roles = roles;
+	}
 
-    public String getRol() {
-        return rol;
-    }
+	public Usuario(Long id, String nombre, String apellido, String email, String password, Collection<Rol> roles) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
 
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
+	public Usuario(String nombre, String apellido, String email, String password, Collection<Rol> roles) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
 
-    @Override
-    public String toString() {
-        return "Usuario{id=" + id + ", email='" + email + "', rol='" + rol + "'}";
-    }
+	public Usuario() {
+		
+	}
+
 }
