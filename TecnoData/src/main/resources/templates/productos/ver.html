@@ -4,11 +4,21 @@
     <title>Detalles del Producto</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">TecnoSmart</a>
+        </div>
+    </nav>
     <h1>Detalles del Producto</h1>
     <p><strong>ID:</strong> <span th:text="${producto.id}"></span></p>
     <p><strong>Nombre:</strong> <span th:text="${producto.nombre}"></span></p>
     <p><strong>Precio:</strong> <span th:text="${producto.precio}"></span></p>
     <p><strong>Stock:</strong> <span th:text="${producto.stock}"></span></p>
+    
+    <!-- Agregar el campo de imagen -->
+    <p><strong>Imagen:</strong></p>
+    <img th:src="@{${producto.imagenUrl}}" alt="Imagen del producto" width="300"/>
+
     <a th:href="@{/productos}">Volver</a>
 </body>
 </html>

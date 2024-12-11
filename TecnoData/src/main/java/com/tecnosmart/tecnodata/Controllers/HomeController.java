@@ -20,19 +20,12 @@ public class HomeController {
         return "index";
     }
 
-
-     /*
-    @GetMapping("/home")
-    public String home() {
-        return "home"; // Retorna el archivo home.html
-    }
-    */
-    
-
+    /*
     @GetMapping("/categorias")
     public String categorias() {
         return "categorias"; // Retorna el archivo categorias.html
     }
+    */
 
     @GetMapping("/nosotros")
     public String nosotros() {
@@ -49,12 +42,6 @@ public class HomeController {
         return "contacto"; // Retorna el archivo contacto.html
     }
 
-    /*
-    @GetMapping("/productos")
-    public String productos() {
-        return "productos/listar"; // Retorna el archivo listar.html
-    }
-        */
 
    
 }

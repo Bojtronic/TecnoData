@@ -22,6 +22,9 @@ public class Producto {
     @Column(name = "stock")
     private Integer stock;
 
+    @Column(name = "imagen_url")
+    private String imagenUrl;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
@@ -66,6 +69,14 @@ public class Producto {
         this.stock = stock;
     }
 
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
+    }
+
     public Categoria getCategoria() {
         return categoria;
     }
@@ -74,22 +85,22 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public Producto(Long id, String nombre, String descripcion, Double precio, Integer stock, Categoria categoria) {
-        super();
+    public Producto(Long id, String nombre, String descripcion, Double precio, Integer stock, String imagenUrl, Categoria categoria) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
+        this.imagenUrl = imagenUrl;
         this.categoria = categoria;
     }
 
-    public Producto(String nombre, String descripcion, Double precio, Integer stock, Categoria categoria) {
-        super();
+    public Producto(String nombre, String descripcion, Double precio, Integer stock, String imagenUrl, Categoria categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
+        this.imagenUrl = imagenUrl;
         this.categoria = categoria;
     }
 

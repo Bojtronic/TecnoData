@@ -45,7 +45,7 @@ public class SecurityConfiguration {
                 .requestMatchers(
                    "/",
                     "/productos/**",
-                    "/categorias",
+                    "/categorias/**", 
                     "/nosotros",
                     "/servicios",
                     "/contacto",
