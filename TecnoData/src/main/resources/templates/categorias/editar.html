@@ -18,11 +18,6 @@
                 <input type="text" id="nombre" th:field="*{nombre}" class="form-control" required>
             </div>
 
-            <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción:</label>
-                <textarea id="descripcion" th:field="*{descripcion}" class="form-control" required></textarea>
-            </div>
-
             <div class="mt-4">
                 <button type="submit" class="btn btn-primary">Actualizar</button>
                 <a th:href="@{/categorias}" class="btn btn-secondary">Cancelar</a>
