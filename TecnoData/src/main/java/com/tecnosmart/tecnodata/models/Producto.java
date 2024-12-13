@@ -25,10 +25,14 @@ public class Producto {
     @Column(name = "imagen_url")
     private String imagenUrl;
 
+    @Column(name = "cantidad_ventas", nullable = false)
+    private Integer cantidadVentas;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
 
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -77,6 +81,14 @@ public class Producto {
         this.imagenUrl = imagenUrl;
     }
 
+    public Integer getCantidadVentas() {
+        return cantidadVentas;
+    }
+
+    public void setCantidadVentas(Integer cantidadVentas) {
+        this.cantidadVentas = cantidadVentas;
+    }
+
     public Categoria getCategoria() {
         return categoria;
     }
@@ -85,22 +97,25 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public Producto(Long id, String nombre, String descripcion, Double precio, Integer stock, String imagenUrl, Categoria categoria) {
+    // Constructores
+    public Producto(Long id, String nombre, String descripcion, Double precio, Integer stock, String imagenUrl, Integer cantidadVentas, Categoria categoria) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
         this.imagenUrl = imagenUrl;
+        this.cantidadVentas = cantidadVentas;
         this.categoria = categoria;
     }
 
-    public Producto(String nombre, String descripcion, Double precio, Integer stock, String imagenUrl, Categoria categoria) {
+    public Producto(String nombre, String descripcion, Double precio, Integer stock, String imagenUrl, Integer cantidadVentas, Categoria categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
         this.imagenUrl = imagenUrl;
+        this.cantidadVentas = cantidadVentas;
         this.categoria = categoria;
     }
 

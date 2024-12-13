@@ -38,6 +38,27 @@ INSERT INTO categoria (nombre, imagen_url, cantidad_ventas) VALUES
 
 
 
+INSERT INTO productos (nombre, descripcion, precio, stock, imagen_url, cantidad_ventas, categoria_id) VALUES
+('Producto 1', 'Descripción del producto 1', 19.99, 50, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 10, 1),
+('Producto 2', 'Descripción del producto 2', 29.99, 30, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 20, 1),
+('Producto 3', 'Descripción del producto 3', 39.99, 40, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 15, 2),
+('Producto 4', 'Descripción del producto 4', 49.99, 25, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 5, 2),
+('Producto 5', 'Descripción del producto 5', 59.99, 10, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 8, 3),
+('Producto 6', 'Descripción del producto 6', 69.99, 15, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 50, 3),
+('Producto 7', 'Descripción del producto 7', 79.99, 20, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 35, 4),
+('Producto 8', 'Descripción del producto 8', 89.99, 12, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 18, 4),
+('Producto 9', 'Descripción del producto 9', 99.99, 8, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 22, 5),
+('Producto 10', 'Descripción del producto 10', 109.99, 5, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 7, 5),
+('Producto 11', 'Descripción del producto 11', 119.99, 18, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 40, 6),
+('Producto 12', 'Descripción del producto 12', 129.99, 22, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 12, 6),
+('Producto 13', 'Descripción del producto 13', 139.99, 19, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 27, 7),
+('Producto 14', 'Descripción del producto 14', 149.99, 13, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 30, 7),
+('Producto 15', 'Descripción del producto 15', 159.99, 25, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 45, 8),
+('Producto 16', 'Descripción del producto 16', 169.99, 20, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 33, 8),
+('Producto 17', 'Descripción del producto 17', 179.99, 10, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 50, 9),
+('Producto 18', 'Descripción del producto 18', 189.99, 7, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 25, 9),
+('Producto 19', 'Descripción del producto 19', 199.99, 30, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 60, 10),
+('Producto 20', 'Descripción del producto 20', 209.99, 50, 'https://e7.pngegg.com/pngimages/576/719/png-clipart-new-product-development-marketing-product-innovation-sales-product-stamp-emblem-text-thumbnail.png', 42, 10);
 
 
 
@@ -45,14 +66,14 @@ INSERT INTO categoria (nombre, imagen_url, cantidad_ventas) VALUES
 
 
 
-INSERT INTO productos (descripcion, imagen_url, nombre, precio, stock, categoria_id)
-VALUES ('Smartphone con pantalla de 6.5 pulgadas, cámara de 12MP y procesador Octa-core', 'https://w7.pngwing.com/pngs/78/447/png-transparent-iphone-logo-show-smartphone-android-cell-phone-gadget-electronics-rectangle-thumbnail.png', 'Smartphone XYZ', 300.00, 50, 1);
 
-INSERT INTO productos (descripcion, imagen_url, nombre, precio, stock, categoria_id)
-VALUES ('Zapatos deportivos de hombre, talla 42, color negro', 'https://e7.pngegg.com/pngimages/804/706/png-clipart-footwear-shoe-clothing-valco-plast-sneakers-others-miscellaneous-logo.png', 'Zapatos deportivos', 75.00, 100, 2);
 
-INSERT INTO productos (descripcion, imagen_url, nombre, precio, stock, categoria_id)
-VALUES ('Libro de programación en C++, cubriendo desde lo básico hasta temas avanzados', 'https://thumbs.dreamstime.com/z/icono-de-libros-acerca-la-programaci%C3%B3n-un-libro-en-el-lenguaje-c-121634497.jpg', 'Libro de C++ avanzado', 40.00, 200, 3);
+
+
+
+
+
+
 
 
 INSERT INTO usuarios (apellido, email, nombre, password, rol)

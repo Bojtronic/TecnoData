@@ -58,7 +58,7 @@
     </div>
 
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Categorías</h2>
+        <h2 class="text-center mb-4">Categorías más vendidas (mayor a 50 ventas)</h2>
         <div class="row">
             <div class="col-md-4 mb-4" th:each="categoria : ${categorias}">
                 <div class="card text-center">
@@ -73,42 +73,23 @@
     </div>
     
 
-    <!-- Sección de productos destacados -->
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card text-center mb-4">
-                <img src="/img/dispositivos.jpg" class="card-img-top" alt="Producto 1">
-                <div class="card-body">
-                    <h5 class="card-title">Electrónicos</h5>
-                    <p class="card-text">Celulares, laptos y otros</p>
-                    <a th:href="@{/productos}" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card text-center mb-4">
-                <img src="/img/herramientas.jpeg" class="card-img-top" alt="Producto 2">
-                <div class="card-body">
-                    <h5 class="card-title">Herramientas</h5>
-                    <p class="card-text">Todo lo que necesita para trabajar</p>
-                    <a th:href="@{/productos}" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card text-center mb-4">
-                <img src="/img/hogar.jpg" class="card-img-top" alt="Producto 3">
-                <div class="card-body">
-                    <h5 class="card-title">Hogar</h5>
-                    <p class="card-text">Articulos para el hogar</p>
-                    <a th:href="@{/productos}" class="btn btn-primary">Ver más</a>
+    <!-- Sección de 10 productos con más ventas -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">10 productos más vendidos</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" th:each="producto : ${productos}">
+                <div class="card text-center">
+                    <img th:src="${producto.imagenUrl}" class="card-img-top" th:alt="${producto.nombre}">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                        <p class="card-text">Descripcion: <span th:text="${producto.descripcion}"></span></p>
+                        <p class="card-text">Precio: $<span th:text="${producto.precio}"></span></p>
+                        <a th:href="@{/productos/{id}(id=${producto.id})}" class="btn btn-primary">Ver detalles</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 
