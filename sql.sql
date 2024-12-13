@@ -21,14 +21,28 @@ SHOW CREATE TABLE productos;
 SHOW CREATE TABLE usuarios;
 SHOW CREATE TABLE usuario;
 
-INSERT INTO categorias (descripcion, imagen_url, nombre) 
-VALUES ('Electrónica y tecnología', 'https://cdn.vectorstock.com/i/500p/18/71/motherboard-chip-central-processing-unit-symbol-vector-43791871.jpg', 'Electrónica');
 
-INSERT INTO categorias (descripcion, imagen_url, nombre) 
-VALUES ('Ropa y accesorios para todas las edades', 'https://static.vecteezy.com/system/resources/previews/052/932/130/non_2x/clothing-logo-design-template-vector.jpg', 'Ropa y accesorios');
+INSERT INTO categoria (nombre, imagen_url, cantidad_ventas) VALUES
+('Electrónicos', '/img/electronicos.jpg', 10),
+('Herramientas', '/img/herramientas.jpeg', 20),
+('Juguetes', '/img/juguetes.jpg', 30),
+('Libros', '/img/libros.jpg', 40),
+('Deportes', '/img/deportes.jpg', 45),
+('Hogar', '/img/hogar.jpg', 60),
+('Jardinería', '/img/jardineria.jpg', 70),
+('Ropa', '/img/ropa.jpg', 80),
+('Calzado', '/img/calzado.jpg', 90),
+('Automóviles', '/img/automoviles.jpg', 100);
 
-INSERT INTO categorias (descripcion, imagen_url, nombre) 
-VALUES ('Libros, revistas y materiales educativos', 'https://www.shutterstock.com/image-vector/hand-keep-book-read-source-600nw-1127076767.jpg', 'Libros');
+
+
+
+
+
+
+
+
+
 
 
 INSERT INTO productos (descripcion, imagen_url, nombre, precio, stock, categoria_id)

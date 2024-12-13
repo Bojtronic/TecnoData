@@ -51,12 +51,27 @@
     <p class="text-center">Encuentra los mejores productos electrónicos al mejor precio.</p>
     
     <!-- Banner con imagen de fondo -->
-    <div class="text-white text-center py-5" style="background: url('/img/banner.png') no-repeat center center; background-size: cover;">
+    <div class="text-white text-center py-5" style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover;">
         <h1 class="display-4">TecnoSmart</h1>
         <p class="lead">Todo en un solo lugar.</p>
         <a th:href="@{/productos}" class="btn btn-light btn-lg">Explorar Productos</a>
     </div>
 
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Categorías</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" th:each="categoria : ${categorias}">
+                <div class="card text-center">
+                    <img th:src="${categoria.imagenUrl}" class="card-img-top" th:alt="${categoria.nombre}">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${categoria.nombre}"></h5>
+                        <a th:href="@{/productos}" class="btn btn-primary">Ver productos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
     <!-- Sección de productos destacados -->
     <div class="row">
