@@ -34,7 +34,9 @@ public class HomeController {
         List<Categoria> categoriasMasVendidas = categorias.stream()
             .filter(categoria -> categoria.getCantidadVentas() > 50)
             .toList();
-        model.addAttribute("categorias", categoriasMasVendidas);
+
+        model.addAttribute("categorias", categorias);
+        model.addAttribute("categoriasMasVendidas", categoriasMasVendidas);
 
         List<Producto> productos = productoService.listarProductos();
         List<Producto> productosMasVendidos = productos.stream()
