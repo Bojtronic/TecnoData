@@ -30,6 +30,11 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
+    public List<Producto> listarProductosPorCategoria(Long categoriaId) {
+        return productoRepository.findByCategoriaId(categoriaId);
+    }
+
+    @Override
     public Optional<Producto> obtenerProductoPorId(Long id) {
         return productoRepository.findById(id);
     }

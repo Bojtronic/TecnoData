@@ -18,11 +18,28 @@ public class ProductoController {
         this.productoService = productoService;
     }
 
+    
     // Leer: Listar todos los productos
     @GetMapping
     public String listarProductos(Model model) {
         model.addAttribute("productos", productoService.listarProductos());
         return "productos/listar"; // Vista para mostrar la lista de productos
+    }
+    
+
+    // Leer: Listar todos los productos o filtrar por categoría
+    @GetMapping("/categoria/{id}")
+    public String listarProductosCategoria(@PathVariable("id") Long categoriaId, Model model) {
+        if (categoriaId != null) {
+            // Filtrar productos por categoría
+            model.addAttribute("productos", productoService.listarProductosPorCategoria(categoriaId));
+        } else {
+            // Listar todos los productos
+            model.addAttribute("productos", productoService.listarProductos());
+        }
+        // También pasar la lista de categorías al modelo para el menú
+        //model.addAttribute("categorias", productoService.listarCategorias());
+        return "productos/listar"; // Vista para mostrar el catálogo
     }
 
     // Crear: Mostrar formulario para un nuevo producto

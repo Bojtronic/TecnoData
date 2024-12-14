@@ -10,6 +10,8 @@ public interface ProductoService {
     Producto guardar(Producto producto);
     
     List<Producto> listarProductos();
+
+    List<Producto> listarProductosPorCategoria(Long categoriaId);
     
     Optional<Producto> obtenerProductoPorId(Long id);
     
@@ -21,3 +23,4 @@ public interface ProductoService {
 
     void eliminar(Long id);
 }
+
