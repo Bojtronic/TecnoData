@@ -10,50 +10,8 @@
 </head>
 <body>
 
-<!-- Barra de navegación -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" th:href="@{/}">TecnoSmart</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTienda">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTienda">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/}">Inicio</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownCategorias" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownCategorias">
-                        <!-- Menú dinámico de categorías -->
-                        <li th:each="categoria : ${categorias}">
-                            <a class="dropdown-item" th:href="@{/productos/categoria/{id}(id=${categoria.id})}" th:text="${categoria.nombre}"></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/nosotros}">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/servicios}">Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/contacto}">Contacto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/productos}">Productos</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/login}">Iniciar Sesión</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<!-- Incluir el header -->
+<div th:replace="fragments.html :: header"></div>
 
 
 <div class="container mt-4">
@@ -102,53 +60,8 @@
     </div>
 </div>
 
-
-    
-   
-
-<!-- Pie de página -->
-<footer class="bg-dark text-white py-5">
-    <div class="container">
-        <div class="row text-center text-md-start">
-            <!-- Redes sociales -->
-            <div class="col-md-4 mb-4 mb-md-0">
-                <h5>Síguenos</h5>
-                <ul class="list-unstyled d-flex justify-content-center justify-content-md-start">
-                    <li><a href="#" class="text-white text-decoration-none me-3"><i class="fab fa-facebook fa-lg"></i></a></li>
-                    <li><a href="#" class="text-white text-decoration-none me-3"><i class="fab fa-twitter fa-lg"></i></a></li>
-                    <li><a href="#" class="text-white text-decoration-none me-3"><i class="fab fa-instagram fa-lg"></i></a></li>
-                    <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-linkedin fa-lg"></i></a></li>
-                </ul>
-            </div>
-            <!-- Información de contacto -->
-            <div class="col-md-4 mb-4 mb-md-0">
-                <h5>Contacto</h5>
-                <ul class="list-unstyled">
-                    <li><i class="fas fa-map-marker-alt"></i> Dirección: Calle Principal #123, Ciudad</li>
-                    <li><i class="fas fa-phone"></i> Teléfono: +506 1234-5678</li>
-                    <li><i class="fas fa-envelope"></i> Email: contacto@tecnosmart.com</li>
-                </ul>
-            </div>
-            <!-- Categorías -->
-            <div class="col-md-4">
-                <h5>Categorías</h5>
-                <ul class="list-unstyled">
-                    <li><a href="@{/categorias}" class="text-white text-decoration-none">Electrónica</a></li>
-                    <li><a href="@{/categorias}" class="text-white text-decoration-none">Hogar</a></li>
-                    <li><a href="@{/categorias}" class="text-white text-decoration-none">Computación</a></li>
-                    <li><a href="@{/categorias}" class="text-white text-decoration-none">Accesorios</a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- Derechos reservados -->
-        <div class="row mt-4">
-            <div class="col text-center">
-                <p class="mb-0">&copy; 2024 TecnoSmart | Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
+<!-- Incluir el footer -->
+<div th:replace="fragments.html :: footer"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
