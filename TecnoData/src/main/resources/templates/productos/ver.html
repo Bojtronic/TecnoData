@@ -19,7 +19,7 @@
     <img th:src="@{${producto.imagenUrl}}" alt="Imagen del producto" width="300"/>
 
     <br>
-    <button th:href="@{/productos}">Volver</button>
+    <a th:href="@{/productos}">Volver</a>
 
     <!-- Incluir el footer -->
     <div th:replace="fragments.html :: footer"></div>
