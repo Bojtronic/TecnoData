@@ -14,6 +14,10 @@ public class CarritoCompras {
         productos.remove(producto);
     }
 
+    public void limpiar() {
+        productos.clear(); // Elimina todos los productos del carrito
+    }
+    
     public Map<Producto, Integer> getProductos() {
         return productos;
     }

@@ -1,11 +1,18 @@
 package com.tecnosmart.tecnodata.controllers;
 
+import java.io.FileOutputStream;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.tecnosmart.tecnodata.models.*;
+import com.tecnosmart.tecnodata.services.FacturaService;
+import com.tecnosmart.tecnodata.services.PDFService;
 import com.tecnosmart.tecnodata.services.ProductoService;
 
 @Controller
@@ -16,11 +23,52 @@ public class CarritoController {
     @Autowired
     private ProductoService productoService;
 
+    @Autowired
+    private FacturaService facturaService;
+
+    @Autowired
+    private PDFService pdfService;
+
     // Configura el carrito como un atributo de sesión
     @ModelAttribute("carrito")
     public CarritoCompras carrito() {
         return new CarritoCompras();
     }
+
+    @PostMapping("/comprar")
+    public String realizarCompra(@ModelAttribute("carrito") CarritoCompras carrito) {
+        if (carrito.getProductos().isEmpty()) {
+            return "redirect:/carrito?error=empty";
+        }
+
+        // Crear factura
+        Factura factura = new Factura();
+        factura.setFecha(LocalDate.now());
+        factura.setTotal(BigDecimal.valueOf(carrito.calcularTotal()));
+
+        List<DetalleFactura> detalles = carrito.getProductos().entrySet().stream().map(entry -> {
+            DetalleFactura detalle = new DetalleFactura();
+            detalle.setProducto(entry.getKey());
+            detalle.setCantidad(entry.getValue());
+            detalle.setSubtotal(new BigDecimal(entry.getKey().getPrecio().toString()).multiply(new BigDecimal(entry.getValue())));
+            detalle.setFactura(factura);
+            return detalle;
+        }).toList();
+
+        factura.setDetalles(detalles);
+
+        // Guardar en la base de datos
+        facturaService.guardarFactura(factura);
+
+        // Generar PDF
+        pdfService.generarFacturaPDF(factura);
+
+        // Limpiar el carrito
+        carrito.limpiar();
+
+        return "redirect:/productos?success=compraRealizada";
+    }
+
 
     // Agrega un producto al carrito
     @PostMapping("/agregar")
