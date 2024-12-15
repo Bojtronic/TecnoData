@@ -47,6 +47,7 @@ public class SecurityConfiguration {
                     "/productos/**",
                     "/categorias/**", 
                     "/carrito/**",
+                    "/admin_facturas",
                     "/nosotros",
                     "/servicios",
                     "/contacto",

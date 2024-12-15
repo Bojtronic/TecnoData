@@ -1,5 +1,7 @@
 package com.tecnosmart.tecnodata.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,5 +21,10 @@ public class FacturaServiceImpl implements FacturaService{
     @Transactional
     public void guardarFactura(Factura factura) {
         facturaRepository.save(factura);
+    }
+
+    @Override
+    public List<Factura> obtenerTodasLasFacturas() {
+        return facturaRepository.findAll();
     }
 }

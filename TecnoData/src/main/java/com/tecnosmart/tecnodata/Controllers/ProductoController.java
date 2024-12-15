@@ -25,6 +25,12 @@ public class ProductoController {
         model.addAttribute("productos", productoService.listarProductos());
         return "productos/listar"; // Vista para mostrar la lista de productos
     }
+
+    @GetMapping("/admin_productos")
+    public String admin_listarProductos(Model model) {
+        model.addAttribute("productos", productoService.listarProductos());
+        return "productos/admin_productos"; // Vista para mostrar la lista de productos
+    }
     
 
     // Leer: Listar todos los productos o filtrar por categoría
