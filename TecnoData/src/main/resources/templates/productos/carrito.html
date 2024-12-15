@@ -10,6 +10,14 @@
 
     <div class="container mt-5">
         <h1 class="mb-4">Carrito de Compras</h1>
+
+        <!-- Mostrar mensajes de éxito o error -->
+        <div th:if="${success}" class="alert alert-success" role="alert">
+            <span th:text="${success}"></span>
+        </div>
+        <div th:if="${error}" class="alert alert-danger" role="alert">
+            <span th:text="${error}"></span>
+        </div>
     
         <div th:if="${productosCarrito.isEmpty()}" class="alert alert-warning" role="alert">
             El carrito está vacío.
@@ -45,7 +53,7 @@
     
             <!-- Botones -->
             <div class="mt-4">
-                <a href="/productos" class="btn btn-secondary">Volver al Catálogo</a>
+                <a href="/carrito/ver" class="btn btn-secondary">Volver al Catálogo</a>
                 <form th:action="@{/carrito/comprar}" method="post" style="display: inline;">
                     <button type="submit" class="btn btn-success">Realizar Compra</button>
                 </form>

@@ -35,6 +35,23 @@ public class CarritoController {
         return new CarritoCompras();
     }
 
+    @GetMapping("/ver")
+    public String mostrarCarrito(@RequestParam(value = "error", required = false) String error,
+                                  @RequestParam(value = "success", required = false) String success,
+                                  @ModelAttribute("carrito") CarritoCompras carrito,
+                                  Model model) {
+        if (error != null) {
+            model.addAttribute("error", "El carrito está vacío. No se puede realizar la compra.");
+        }
+        if (success != null) {
+            model.addAttribute("success", "Compra realizada con éxito. ¡Gracias por su compra!");
+        }
+
+        model.addAttribute("productosCarrito", carrito.getProductos());
+        model.addAttribute("total", carrito.calcularTotal());
+        return "productos/carrito"; // Retorna la vista del carrito
+    }
+
     @PostMapping("/comprar")
     public String realizarCompra(@ModelAttribute("carrito") CarritoCompras carrito) {
         if (carrito.getProductos().isEmpty()) {
@@ -66,7 +83,7 @@ public class CarritoController {
         // Limpiar el carrito
         carrito.limpiar();
 
-        return "redirect:/productos?success=compraRealizada";
+        return "redirect:/carrito?success=compraRealizada";
     }
 
 
