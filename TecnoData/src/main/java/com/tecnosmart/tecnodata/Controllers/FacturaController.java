@@ -16,15 +16,12 @@ public class FacturaController {
     @Autowired
     private FacturaService facturaService;
 
-    @GetMapping("/admin_facturas")
+    @GetMapping("/facturas")
     public String listarFacturas(Model model) {
-        // Obtener la lista de facturas desde el servicio
         List<Factura> facturas = facturaService.obtenerTodasLasFacturas();
 
-        // Pasar la lista de facturas al modelo
         model.addAttribute("facturas", facturas);
 
-        // Retornar el nombre de la plantilla HTML
         return "productos/admin_facturas";
     }
 
