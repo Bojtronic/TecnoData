@@ -10,9 +10,11 @@ public class CarritoCompras {
         productos.put(producto, productos.getOrDefault(producto, 0) + 1);
     }
 
+
     public void eliminarProducto(Producto producto) {
         productos.remove(producto);
     }
+    
 
     public void limpiar() {
         productos.clear(); // Elimina todos los productos del carrito

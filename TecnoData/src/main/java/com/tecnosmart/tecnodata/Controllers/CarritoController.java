@@ -92,9 +92,16 @@ public class CarritoController {
     @PostMapping("/eliminar")
     public String eliminarProducto(@RequestParam Long productoId, 
                                     @ModelAttribute("carrito") CarritoCompras carrito) {
-        Producto producto = productoService.obtenerProductoPorId(productoId)
-                .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado con ID: " + productoId));
-        carrito.eliminarProducto(producto);
+        // Buscar el producto en el carrito por su ID y eliminarlo
+        Producto productoAEliminar = carrito.getProductos().keySet().stream()
+                .filter(producto -> producto.getId().equals(productoId))
+                .findFirst()
+                .orElse(null);
+
+        if (productoAEliminar != null) {
+            carrito.eliminarProducto(productoAEliminar);
+        }
+
         return "redirect:/carrito"; // Redirige a la vista del carrito después de eliminar
     }
 }
