@@ -58,9 +58,14 @@ public class ProductoController {
     // Crear: Guardar el nuevo producto
     @PostMapping
     public String guardarProducto(@ModelAttribute("producto") Producto producto) {
+        if (producto.getCantidadVentas() == null) {
+            producto.setCantidadVentas(0); // Establecer un valor predeterminado si es necesario
+        }
         productoService.guardar(producto);
         return "redirect:/productos";
     }
+
+
 
     // Leer: Ver un producto por ID
     @GetMapping("/{id}")
